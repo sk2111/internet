@@ -1,0 +1,53 @@
+IP & Protocols
+
+=> After creating internet to share information from one device to another we need some way
+=> IP address and Internet protocol comes at that Time
+
+Protocol
+
+=> A protocol is a set of rules and regulations which allows from device to communicate 
+with another so that they can share the information
+
+=> So to use Internet device must need to understand how Internet protocol works 
+
+IP (Internet protocol)
+
+=> Internet uses an IP address and address which will be uniqie for all the devices 
+connected to the internet 
+
+DEVICE ==== ISP ==== INTERNET
+
+=> usally or device will be connected to a netwrok which will connect to ISP and ISP takes care of
+connecting us to the whole world
+
+IP addressing
+
+IP address is much like an home address it has its meaning
+
+IPV4: 32 bit long => 4 Byte address Designed 1970
+
+    
+    174.129.14.120 => maximum => 255.255.255.255 (each is 1 byte for each part )
+
+    => The early address represent the COUNTRY NETWORK 
+    => Then comes the REGION NETWORK
+    => Then comes the SUBNET NETWORK
+    => Then comes the DEVICE
+
+    => IPV4 can support upto 4 billion unique address
+    => Due to internet popularity 4 billion is not enough 
+    => So we started an transistion to move from IPV4 to IPV6 
+
+
+IPV6: 16 Byte addressing scheme => 128 bits
+    
+    2001:0db8:0def:0000:0000:8a2e:0370:7334
+    => Made up of hex values
+    => Support upto 340 undecillion UNIQUE address
+
+ICANN => Internet Corporation for Assigned Names and Numbers (ICANN)
+
+ICANN handles the domain name registration,assigning IP when Domain are registered
+which will help the internet to maintain the intgrity
+
+
