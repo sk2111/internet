@@ -1,0 +1,50 @@
+=> Introduced in 1970 as a result of ARPANET 
+
+=> Internet is a distributed network system which helps us to move information from one place 
+to another
+
+=> Internet is not an centralized system but its is disturbed like and mesh so nobody owns it 
+or we can say like everybody owns them 
+
+=> The main idea of internet is splitting the message into chunks and sending the chunk in the
+switched packet network as fast as possible
+
+=> The core concept is even though there is no end to end connectivity they are motivated by the 
+factor they will be an end to end connectivity 
+
+
+INTERNET WIRES,WIFI,CABLES
+
+=> In Internet everything will be in binary that is 1 or 0
+    8bit = 1byte
+    1024 byte = 1 kilobyte
+    1024 kilobyte = 1 Megabyte
+
+=> Earlier days we used morse code,telegrapgh to communicate binary information
+
+=> But these methods are error prone and really slow
+
+=> At present people use electricity,light,radio waves to transmit binary information
+
+BANDWIDTH
+
+=> Bandwidth is the measure of number of bits transmitted at a given transmitted
+=> High bandwidth => fast information sharing 
+
+LATENCY
+
+=> Time taken for one bit to move from start to end
+
+
+DIFFERENT MEDIUMS TO TRANSFER THESE 
+
+ELECTRICITY => cheap but long distance signal loss (few hundreds feet)
+LIGHT => long distance fibre optics, very fast but costly
+
+WIRELESS: 
+
+Radio waves => Machines will convert the binary information into 1 and 0 and encode them in 
+AM radio and FM radio waves
+
+Totally mobile but limited distance is short 
+
