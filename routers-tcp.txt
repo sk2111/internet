@@ -1,0 +1,18 @@
+1) When a server and client is transfering data over the network there wont be any 
+dedicated connection established between them 
+
+2) When sending an internet it is usually slit into multiple chunks of packets
+
+3) There packets are send over the netwrok and routers takes care of sending them to destination
+in different direction depending upon netwrok traffic etc 
+
+4) In order to the internet to be relaible IP protocol comes along with TCP
+
+5) Transmission Control Protocol ensures the delivery of the packets to the destination 
+
+6) If some packets are lost in the transmission TCP takes care of requesting that packets 
+again and it makes sure that every packet is received
+
+Thus TCP/IP plays a important role in internet reliablity and scalablity
+
+
