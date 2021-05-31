@@ -1,0 +1,28 @@
+Hyper Text Transfer Protocol
+
+1) Broswers use HTTP protocol to communicate with serves to retrive information
+
+2) Here the resources can be anything like an HTML document, Images,videos etc
+
+3) HTTP comes in the Applicaton layer of OSI Model 
+
+4) HTTP protocol have serval versions 0.9,1,1.1,2
+
+5) HTTP send the data over network in plain form so it is easy for attackers to snoop the information
+
+6) HTTPS comes into play to provide an extra encryption over the data we will use to send
+
+Here in HTTPS the server will send an digital certificate of veryfying the identity and then
+broswers will verify it and enable a HTTPS connection (TLS) so that the data packets will be encrypted 
+
+More abput HTTP
+
+=> HTTP is stateless protocol and it uses TCP behind the scenes to establish the communication
+
+=> TCP uses three way handshake to establish connection to the server
+
+=> It controls the packet transmission and also it is reliable protocol
+
+HTTP versions
+
+
