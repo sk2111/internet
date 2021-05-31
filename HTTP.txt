@@ -25,4 +25,187 @@ More abput HTTP
 
 HTTP versions
 
+HTTP /0.9 the one line protocol
+
+    Request nature : single line 
+
+    Response : hypertext only
+
+    Connection nature : Terminated immediately after the Response
+
+    No HTTP headers , No status codes , No URLS
+
+
+    $> telnet ashenlive.com 80
+    (Connection 1 Establishment - TCP Three-Way Handshake)
+    Connected to xxx.xxx.xxx.xxx
+    (Request)
+    GET /my-page.html
+    (Response in hypertext)
+    <HTML>
+    A very simple HTML page
+    </HTML>
+    (Connection 1 Closed - TCP Teardown)
+
+
+HTTP 1.0
+
+    Provides header fields including rich metadata about both request and Response
+
+    Response is not limited to html but it supports media,scripts,stylesheets 
+
+    Methods supported : GET,HEAD,POST
+
+    Connection nature : terminated after the Response
+
+    (Connection 1 Establishment - TCP Three-Way Handshake)
+    Connected to xxx.xxx.xxx.xxx
+    (Request)
+    GET /my-page.html HTTP/1.0 
+    User-Agent: NCSA_Mosaic/2.0 (Windows 3.1)
+    (Response)
+    HTTP/1.0 200 OK 
+    Content-Type: text/html 
+    Content-Length: 137582
+    Expires: Thu, 01 Dec 1997 16:00:00 GMT
+    Last-Modified: Wed, 1 May 1996 12:45:26 GMT
+    Server: Apache 0.84
+
+    <HTML> 
+    A page with an image
+    <IMG SRC="/myimage.gif">
+    </HTML>
+    (Connection 1 Closed - TCP Teardown)
+    ------------------------------------------
+    (Connection 2 Establishment - TCP Three-Way Handshake)
+    Connected to xxx.xxx.xxx.xxx
+    (Request)
+    GET /myimage.gif HTTP/1.0
+    User-Agent: NCSA_Mosaic/2.0 (Windows 3.1)
+
+    (Response)
+    HTTP/1.0 200 OK 
+    Content-Type: text/gif 
+    Content-Length: 137582
+    Expires: Thu, 01 Dec 1997 16:00:00 GMT
+    Last-Modified: Wed, 1 May 1996 12:45:26 GMT
+    Server: Apache 0.84
+    [image content]
+    (Connection 2 Closed - TCP Teardown)
+
+
+Major problem with HTTP 0.9 and HTTP 1.1 is they need to open up new connection for each 
+request and it will be closed after the resource is send 
+
+TCP involves a three way handshake and it seems these operation is costly and for better 
+performance it was crucial to reduce these round trips between client and server
+
+HTTP/1.1 solved this issue with persistant connections
+
+
+HTTP 1.1
+
+   Common in use protocol
+
+   Introduced performance optimizations and feature enhancements like persistant and pipelined
+   compression/decompression.
+
+   Methods GET,HEAD,PUT,PATCH,DELETE,TRACE,optimizations
+
+   connection nature long-lived
+
+
+    (Connection 1 Establishment - TCP Three-Way Handshake)
+    Connected to xxx.xxx.xxx.xxx
+    (Request 1)
+    GET /en-US/docs/Glossary/Simple_header HTTP/1.1
+    Host: developer.mozilla.org
+    User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:50.0) Gecko/20100101 Firefox/50.0
+    Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+    Accept-Language: en-US,en;q=0.5
+    Accept-Encoding: gzip, deflate, br
+    Referer: https://developer.mozilla.org/en-US/docs/Glossary/Simple_header
+
+    (Response 1)
+    HTTP/1.1 200 OK
+    Connection: Keep-Alive
+    Content-Encoding: gzip
+    Content-Type: text/html; charset=utf-8
+    Date: Wed, 20 Jul 2016 10:55:30 GMT
+    Etag: "547fa7e369ef56031dd3bff2ace9fc0832eb251a"
+    Keep-Alive: timeout=5, max=1000
+    Last-Modified: Tue, 19 Jul 2016 00:59:33 GMT
+    Server: Apache
+    Transfer-Encoding: chunked
+    Vary: Cookie, Accept-Encoding
+
+    [content]
+
+    (Request 2)
+    GET /static/img/header-background.png HTTP/1.1
+    Host: developer.cdn.mozilla.net
+    User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:50.0) Gecko/20100101 Firefox/50.0
+    Accept: */*
+    Accept-Language: en-US,en;q=0.5
+    Accept-Encoding: gzip, deflate, br
+    Referer: https://developer.mozilla.org/en-US/docs/Glossary/Simple_header
+
+    (Response 2)
+    HTTP/1.1 200 OK
+    Age: 9578461
+    Cache-Control: public, max-age=315360000
+    Connection: keep-alive
+    Content-Length: 3077
+    Content-Type: image/png
+    Date: Thu, 31 Mar 2016 13:34:46 GMT
+    Last-Modified: Wed, 21 Oct 2015 18:27:50 GMT
+    Server: Apache
+
+    [image content of 3077 bytes]
+    (Connection 1 Closed - TCP Teardown)
+
+
+HTTP 1.1 loads the resource one after the other so if an resources cannot be loaded it
+blocks all other resources behind it 
+
+Opening multiple TCP connectons for requesting different resources is a problem 
+
+Textual nature of data transfer
+
+Long HTTP headers
+
+HTTP2
+
+    HTTP 2 encodes the data in primary in the protocol layer but at the top layer
+    both HTTP1.1 and HTTP2 looks like the same (HTTP1.1 uses a Text format data)
+
+    HTTP1.1 had head of line blocking which means even though the connection is persistant
+    in HTTP1.1 if some of the front resource is delayed it block other resources from processing
+
+    HTTP2 uses a binary protocol use cut the information into very small chunks
+
+    HTTP2 also uses server push to send notifications to client from server 
+    without client request
+
+    HTTP2 comes with header compression 
+
+    HTTP2 supports multiplexing and bidirectional means of communication 
+
+    It uses single TCP connection and passes all the information through this 
+
+
+HTTP2 is great but it introduces TCP head of line blocking 
+Because TCP is an guaranteed protocol and if multiple streams are send over the 
+same TCP connection then  if there is a loss in packet then all of those packets
+have to wait to retrive the lost packet
+
+HTTP3 protocol
+
+    In order to overcome the HTTP2 shotcomings of TCP head of line blocking
+
+    HTTP over QUIC (HTTP3) used the UDP(user datagram protocol) ad its underlying protocol
+
+    This protocol is designed to be faster and Quicker than TCP
+
+    It comes with its own TLS1.3 and there is no need for additional HTTPS
 
