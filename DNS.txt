@@ -1,0 +1,18 @@
+1) Domain name server is used to convert the Domain name into the IP addresss
+
+2) Computer uses the DNS to look up the IP address which is used to connect to the destination
+
+DNS servers are connected in a Distributed hierarchy manner like a there
+
+Mostly these zones are split up into something like .org,.com,.gov
+
+
+DNS is maintained by organizations
+
+When we type a address in web browser first it will look into broswer cache for IP
+then OS level , then our router and then ISP DNS resolver and then root server 
+and then particular root like .com or .org and at last ends wup with proper IP 
+address for our website
+
+
+If client is broswer all these things are taken care by the broswer itself
