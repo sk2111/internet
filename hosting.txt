@@ -1,0 +1,48 @@
+1) Hosting is the process of rensting or buying space to house the website on world wide web
+
+2) Generally we would buy a space where we upload all the files for the website
+
+3) Set up Domain Name and DNS records to point to that hosting IP
+
+4) Hosting companies provides us the RAM,CPU.Memory like a computer to put our files
+   and we need to pay some money to maintain that
+
+
+Types of web hosting
+
+
+=> shared web hosting
+
+=> dedicated web hoisting
+
+=> VPS hoisting
+
+=> cloud
+
+
+
+shared web hosting:
+
+    * shared web hosting is when we Host a website along with other websites
+    * It is cheap and easy to set up
+    * Apt for short traffic 
+
+VPS hoisting
+
+    * VPS is when a virtual server appears to each client as dedicated server 
+    * In turn is is also shared across multiple websites
+    * Suitable for medium traffic and medium websites
+    * Can able to configure in a full way
+
+Dedicated Hosting 
+
+    * Provides full server to rent and cost is More
+    * Need to configure all from scratch
+
+Cloud hosting
+
+    * Recent popular it operates across multiple interconnected web servers 
+    * Cheaper and more reliable 
+    * Provides scalable and reliable solutions
+
+
