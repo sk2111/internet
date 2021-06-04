@@ -1,0 +1,25 @@
+Broswer HIgh level 
+
+    UI Layer
+        |
+    Browser Engine   ====> persistance storage 
+        |
+    Renderer Enginer
+        |
+Netwokr  Javascript    UI Layers(OS level)
+            Enginer
+
+
+
+1) HTML from the network layer will be parsed to construct the DOM tree
+2) The DOM tree will be formed from HTML and CSSOM from CSSOM
+3) Parallel to this the Renderer tree or render object will be created
+4) Render object will resemble the DOM except it does not include the elements which are
+    not a part of UI like head tag display:none except
+5) Render tree does not have height,,width associated with it 
+6) Render object has methods like flow , paint 
+7) After render object is constructed flow function will be called which takes care of the
+   layout process adding height/width
+8) Once the layout / flow process is done then painting will be involved which generates the UI we see
+
+  HTML => RENDER OBJECT => FLOW/LAYOUT => PAINTING
