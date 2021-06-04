@@ -16,3 +16,25 @@ address for our website
 
 
 If client is broswer all these things are taken care by the broswer itself
+
+
+
+From Broswer => ISP recursive DNS resolver(does not IP address but knows where is root)
+=> Reach root server (Does not know IP but knows where is particular TLD)
+=> Reach TLD DNS server (Does not know IP but knows where is Authority name server (digitalOCean,goDaddy))
+=> Reach Authoritative name server and get the valid IP and returns back  
+
+
+
+DNS Records 
+
+A Record   => Record domain(hostname) to ipv4 address 
+
+AAAA Record => Record domain(hostname) to ipv6 address 
+
+TXT Record => typically carries a machine reable data 
+
+NS Record => Name server => specifies that a DNS zone such as "example.com" is delegated to
+specific Authoritative Name server and it provides the address of the name server 
+
+CNAME Record => Canonical name can be used as alias a hostname to another hostname
