@@ -19,7 +19,25 @@ Netwokr  Javascript    UI Layers(OS level)
 5) Render tree does not have height,,width associated with it 
 6) Render object has methods like flow , paint 
 7) After render object is constructed flow function will be called which takes care of the
-   layout process adding height/width
+   layout process adding height/width and position
 8) Once the layout / flow process is done then painting will be involved which generates the UI we see
 
   HTML => RENDER OBJECT => FLOW/LAYOUT => PAINTING
+
+From network layer we usually receives byte data , the byte are converted to characters based
+on encoding and after that lexical parsing step will happen 
+
+While the parsing  happens the DOM tree is constructed and when it sees any css resources
+immediatley a network request will be send and once it is  fetched a CSSOM is created
+
+Both DOM and CSSOM is used to generate the render tree or Renderer
+
+
+When the Javascript is encountered(unless defer or async) the DOM parsing stops and gives control
+to the Javascript engine , once javascript is done then parsing and executing then the DOM tree 
+begins again
+
+1) DOM stops for javascript completion(expect async defer javascript specified)
+2) Javascript must wait for CSSOM to be ready (or else race condition will occur)
+3) The location of the script in the document is significant
+
